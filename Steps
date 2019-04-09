@@ -1,3 +1,24 @@
+Interaction with page: fillField(), selectOption(), submitForm(), click()
+Assertions. see(), dontSee(), seeElement(), seeInCurrentUrl(), seeCheckboxIsChecked(), seeInField(), seeLink(). To all these methods you can add a suffix and use it when you need a method that will not interrupt the test scenario when something cannot be found.
+Cookie methods: setCookie(), grabCookie(), seeCookie()
+Comment and description of test scenarios: amGoingTo(), wantTo(), expect(). Use these methods to get well commented and described tests, which will help you remember the goals of the test.
+
+SmartWait works only with a specific locators:
+#locator - CSS ID locator, works
+//locator - general XPath locator, works
+['css' => 'button''] - strict locator, works
+
+
+['id' => 'foo'] matches <div id="foo">
+['name' => 'foo'] matches <div name="foo">
+['css' => 'input[type=input][value=foo]'] matches <input type="input" value="foo">
+['xpath' => "//input[@type='submit'][contains(@value, 'foo')]"] matches <input type="submit" value="foobar">
+['link' => 'Click here'] matches <a href="google.com">Click here</a>
+['class' => 'foo'] matches <div class="foo">
+
+$I->executeJS('window.scrollTo(0,document.body.scrollHeight);');
+$I->executeJS('window.scrollTo(0,900);');
+
 $I->makeScreenshot('pokroku2');
 
 
@@ -8,3 +29,5 @@ $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdr
 
 codecept_debug($I->grabTextFrom('#name'));
 tests/_output
+
+
