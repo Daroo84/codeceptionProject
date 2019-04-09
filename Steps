@@ -4,3 +4,7 @@ $I->makeScreenshot('pokroku2');
 $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
   $webdriver->get('http://google.com');
 });
+
+
+codecept_debug($I->grabTextFrom('#name'));
+tests/_output
