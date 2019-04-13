@@ -31,3 +31,19 @@ codecept_debug($I->grabTextFrom('#name'));
 tests/_output
 
 
+function getJsLog() {
+    $wb = $this->getModule("WebDriver");
+    $logs = $wb->webDriver->manage()->getLog("browser");
+    return $logs;
+}
+
+$I->see($translator->trans('administrators.form.title.create', [], 'messages'), 'div#js-create-edit-user-modal h4');
+
+$I->see($translator->trans('user.email.invalid', [], 'validators'));
+
+$myRow = $I->executeJS("return $('table#js-employee-list-table').find('tr:contains(".$employee->getEmail().")').prop('rowIndex');");
+$I->click('table#js-employee-list-table tr:nth-of-type('.($myRow + 1).') td ul a.js-edit-employee-data');
+        
+
+$I->click($translator->trans('nav.accounts', [], 'messages'));
+
