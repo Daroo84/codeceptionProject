@@ -47,3 +47,5 @@ $I->click('table#js-employee-list-table tr:nth-of-type('.($myRow + 1).') td ul a
 
 $I->click($translator->trans('nav.accounts', [], 'messages'));
 
+
+$I->executeJS('$("#form_giodo_user_giodo").click();');
