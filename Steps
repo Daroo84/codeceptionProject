@@ -49,3 +49,19 @@ $I->click($translator->trans('nav.accounts', [], 'messages'));
 
 
 $I->executeJS('$("#form_giodo_user_giodo").click();');
+
+
+add helper action to do this.
+for example
+
+function getJsLog() {
+    $wb = $this->getModule("WebDriver");
+    $logs = $wb->webDriver->manage()->getLog("browser");
+    return $logs;
+}
+
+then you can call this action in your test script. like
+
+$logs = $I->getJsLog();
+
+The error information will in the $logs
